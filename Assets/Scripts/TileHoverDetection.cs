@@ -5,6 +5,8 @@ public class TileHoverDetection : MonoBehaviour
     private Camera _mainCamera;
     private RaycastHit _hit;
     private GameObject _currentHoveredTile;
+    [SerializeField]
+    private LayerMask _ignoreLayerMask;
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class TileHoverDetection : MonoBehaviour
     {
         Ray ray = _mainCamera.ScreenPointToRay( Input.mousePosition );
 
-        if (Physics.Raycast( ray, out _hit ))
+        if (Physics.Raycast( ray, out _hit, Mathf.Infinity, ~_ignoreLayerMask ))
         {
             if (_hit.collider.CompareTag( "Tile" ))
             {
