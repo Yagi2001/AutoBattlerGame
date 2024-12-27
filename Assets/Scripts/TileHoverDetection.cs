@@ -57,6 +57,14 @@ public class TileHoverDetection : MonoBehaviour
         {
             tileMeshRenderer.enabled = true;
         }
+        if (tile.transform.childCount > 0)
+        {
+            tile.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
+        else
+        {
+            tile.GetComponent<MeshRenderer>().material.color = Color.green;
+        }
     }
 
     void ResetTileState( GameObject tile )

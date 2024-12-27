@@ -27,6 +27,10 @@ public class DragAndDrop : MonoBehaviour
         _isDragging = true;
         _originalPosition = transform.position;
         _offset = transform.position - GetMouseWorldPosition();
+        if (transform.parent != null)
+        {
+            transform.SetParent( null );
+        }
     }
 
     void OnMouseUp()
@@ -62,8 +66,17 @@ public class DragAndDrop : MonoBehaviour
         {
             if (hit.collider.CompareTag( "Tile" ))
             {
-                transform.position = new Vector3( hit.collider.transform.position.x, transform.position.y, hit.collider.transform.position.z );
-                return true;
+                Transform tileTransform = hit.collider.transform;
+                if (tileTransform.childCount == 0)
+                {
+                    transform.position = new Vector3(
+                        tileTransform.position.x,
+                        transform.position.y,
+                        tileTransform.position.z
+                    );
+                    transform.SetParent( tileTransform );
+                    return true;
+                }
             }
         }
         return false;
