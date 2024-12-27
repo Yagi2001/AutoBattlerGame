@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 2956197574054364627}
   - component: {fileID: -6275091086076302687}
   - component: {fileID: 5426291124914761324}
+  - component: {fileID: 1852671455876441365}
   m_Layer: 3
   m_Name: MariaUnit
   m_TagString: AllyUnit
@@ -991,10 +992,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.4018885
   m_Height: 1.8125993
   m_Direction: 1
-  m_Center: {x: 0, y: 0.86153334, z: 0}
+  m_Center: {x: -0.002236545, y: 0.86153334, z: 0}
 --- !u!114 &2956197574054364627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,6 +1038,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 1
+  _attackDamage: 10
+--- !u!114 &1852671455876441365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722408202362484864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008e7a950293954e99ed5a150adb74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 350
 --- !u!1 &2739181000109923291
 GameObject:
   m_ObjectHideFlags: 0

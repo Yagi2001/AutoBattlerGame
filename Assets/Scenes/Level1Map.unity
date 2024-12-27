@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VampireUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 598159828543958508, guid: 735747af0372fb241adcd7910fd60e15, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735747af0372fb241adcd7910fd60e15, type: 3}
 --- !u!1 &705507993
@@ -457,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 2722408202362484864, guid: 14dcdb7e2ceb8f84c95d852134e968b4, type: 3}
       propertyPath: m_Name
       value: MariaUnit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722408202362484864, guid: 14dcdb7e2ceb8f84c95d852134e968b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3354125618149892666, guid: 14dcdb7e2ceb8f84c95d852134e968b4, type: 3}
       propertyPath: m_RootOrder

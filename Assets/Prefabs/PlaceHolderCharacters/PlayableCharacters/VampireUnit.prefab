@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 327776373551157439}
   - component: {fileID: -2179869344147524697}
   - component: {fileID: 362251588578651426}
+  - component: {fileID: -7949777979806705207}
   m_Layer: 7
   m_Name: VampireUnit
   m_TagString: EnemyUnit
@@ -260,10 +261,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.1844187
+  m_Radius: 0.7264912
+  m_Height: 2.3073232
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0078902, z: 0}
+  m_Center: {x: 0.0044281143, y: 1, z: 0}
 --- !u!114 &-2179869344147524697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +292,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackCooldown: 1
+  _attackDamage: 10
+--- !u!114 &-7949777979806705207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598159828543958508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d008e7a950293954e99ed5a150adb74d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &751859691171582704
 GameObject:
   m_ObjectHideFlags: 0

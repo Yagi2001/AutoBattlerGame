@@ -9,12 +9,12 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField]
     private LayerMask _tileLayer;
 
-    void Start()
+    private void Start()
     {
         _mainCamera = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         if (_isDragging)
         {
@@ -22,7 +22,7 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    private void OnMouseDown()
     {
         _isDragging = true;
         _originalPosition = transform.position;
@@ -33,7 +33,7 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    private void OnMouseUp()
     {
         _isDragging = false;
         bool snappedToTile = SnapToTile();
@@ -43,13 +43,13 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    void DragObject()
+    private void DragObject()
     {
         Vector3 mouseWorldPosition = GetMouseWorldPosition();
         transform.position = new Vector3( mouseWorldPosition.x + _offset.x, transform.position.y, mouseWorldPosition.z + _offset.z );
     }
 
-    Vector3 GetMouseWorldPosition()
+    private Vector3 GetMouseWorldPosition()
     {
         Ray ray = _mainCamera.ScreenPointToRay( Input.mousePosition );
         if (Physics.Raycast( ray, out RaycastHit hit ))
@@ -59,7 +59,7 @@ public class DragAndDrop : MonoBehaviour
         return Vector3.zero;
     }
 
-    bool SnapToTile()
+    private bool SnapToTile()
     {
         Ray ray = _mainCamera.ScreenPointToRay( Input.mousePosition );
         if (Physics.Raycast( ray, out RaycastHit hit, Mathf.Infinity, _tileLayer ))

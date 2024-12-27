@@ -8,17 +8,17 @@ public class TileHoverDetection : MonoBehaviour
     [SerializeField]
     private LayerMask _ignoreLayerMask;
 
-    void Start()
+    private void Start()
     {
         _mainCamera = Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         DetectTileHover();
     }
 
-    void DetectTileHover()
+    private void DetectTileHover()
     {
         Ray ray = _mainCamera.ScreenPointToRay( Input.mousePosition );
 
@@ -50,7 +50,7 @@ public class TileHoverDetection : MonoBehaviour
         }
     }
 
-    void HighlightTile( GameObject tile )
+    private void HighlightTile( GameObject tile )
     {
         MeshRenderer tileMeshRenderer = tile.GetComponent<MeshRenderer>();
         if (tileMeshRenderer != null)
@@ -67,7 +67,7 @@ public class TileHoverDetection : MonoBehaviour
         }
     }
 
-    void ResetTileState( GameObject tile )
+    private void ResetTileState( GameObject tile )
     {
         MeshRenderer tileMeshRenderer = tile.GetComponent<MeshRenderer>();
         if (tileMeshRenderer != null)

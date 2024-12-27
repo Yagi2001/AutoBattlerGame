@@ -12,9 +12,11 @@ public class UnitMovement : MonoBehaviour
     private float _rotationSpeed = 5f;
     private UnitAttack _unitAttack;
 
-    void Start()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
+        _unitAttack = GetComponent<UnitAttack>();
+
         if (CompareTag( "AllyUnit" ))
         {
             _targetTag = "EnemyUnit";
@@ -25,30 +27,41 @@ public class UnitMovement : MonoBehaviour
         }
 
         FindClosestUnit();
-        _unitAttack = GetComponent<UnitAttack>();
     }
 
-    void Update()
+    private void Update()
     {
+        if (_closestUnit == null || _closestUnit.GetComponent<UnitHealth>().IsDead())
+        {
+            FindClosestUnit();
+        }
+
         if (_closestUnit != null)
         {
-            if (Vector3.Distance( transform.position, _closestUnit.transform.position ) > _attackRange)
+            float distanceToTarget = Vector3.Distance( transform.position, _closestUnit.transform.position );
+            if (distanceToTarget > _attackRange)
             {
                 MoveTowardUnit();
                 RotateTowardsTarget();
             }
-            if (Vector3.Distance( transform.position, _closestUnit.transform.position ) <= _attackRange)
+            else
             {
                 _animator.SetBool( "isRunning", false );
-                _unitAttack.Attack();
+                _unitAttack.Attack( _closestUnit );
             }
+        }
+        else
+        {
+            _animator.SetBool( "isRunning", false );
         }
     }
 
-    void FindClosestUnit()
+
+    private void FindClosestUnit()
     {
         GameObject[] units = GameObject.FindGameObjectsWithTag( _targetTag );
         float closestDistance = Mathf.Infinity;
+
         foreach (GameObject unit in units)
         {
             float distance = Vector3.Distance( transform.position, unit.transform.position );
@@ -60,7 +73,7 @@ public class UnitMovement : MonoBehaviour
         }
     }
 
-    void MoveTowardUnit()
+    private void MoveTowardUnit()
     {
         _animator.SetBool( "isRunning", true );
         if (_closestUnit != null)
@@ -70,7 +83,7 @@ public class UnitMovement : MonoBehaviour
         }
     }
 
-    void RotateTowardsTarget()
+    private void RotateTowardsTarget()
     {
         if (_closestUnit != null)
         {
