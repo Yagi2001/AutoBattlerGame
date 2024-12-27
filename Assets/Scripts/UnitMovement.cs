@@ -10,6 +10,7 @@ public class UnitMovement : MonoBehaviour
     [SerializeField]
     private float _moveSpeed = 5f;
     private float _rotationSpeed = 5f;
+    private UnitAttack _unitAttack;
 
     void Start()
     {
@@ -22,7 +23,9 @@ public class UnitMovement : MonoBehaviour
         {
             _targetTag = "AllyUnit";
         }
+
         FindClosestUnit();
+        _unitAttack = GetComponent<UnitAttack>();
     }
 
     void Update()
@@ -37,6 +40,7 @@ public class UnitMovement : MonoBehaviour
             if (Vector3.Distance( transform.position, _closestUnit.transform.position ) <= _attackRange)
             {
                 _animator.SetBool( "isRunning", false );
+                _unitAttack.Attack();
             }
         }
     }

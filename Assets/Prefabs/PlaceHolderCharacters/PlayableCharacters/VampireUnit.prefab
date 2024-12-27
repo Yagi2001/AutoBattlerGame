@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 6189893440869297452}
   - component: {fileID: 327776373551157439}
   - component: {fileID: -2179869344147524697}
+  - component: {fileID: 362251588578651426}
   m_Layer: 7
   m_Name: VampireUnit
   m_TagString: EnemyUnit
@@ -277,6 +278,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackRange: 3
   _moveSpeed: 5
+--- !u!114 &362251588578651426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598159828543958508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a69279b08e6a448a2179822c75e9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCooldown: 1
 --- !u!1 &751859691171582704
 GameObject:
   m_ObjectHideFlags: 0

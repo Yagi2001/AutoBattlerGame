@@ -934,6 +934,7 @@ GameObject:
   - component: {fileID: 2956197574054364622}
   - component: {fileID: 2956197574054364627}
   - component: {fileID: -6275091086076302687}
+  - component: {fileID: 5426291124914761324}
   m_Layer: 3
   m_Name: MariaUnit
   m_TagString: AllyUnit
@@ -1023,6 +1024,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackRange: 5
   _moveSpeed: 5
+--- !u!114 &5426291124914761324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2722408202362484864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a69279b08e6a448a2179822c75e9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackCooldown: 1
 --- !u!1 &2739181000109923291
 GameObject:
   m_ObjectHideFlags: 0
