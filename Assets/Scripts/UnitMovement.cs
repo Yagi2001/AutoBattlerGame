@@ -31,7 +31,7 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
-        if (StateManager.Instance.CurrentGameState != GameState.BattlePhase)
+        if (StateManager.Instance.CurrentGameState != GameState.BattlePhase || !transform.parent.CompareTag( "Tile" ))
         {
             _animator.SetBool( "isRunning", false );
             return;
@@ -69,11 +69,14 @@ public class UnitMovement : MonoBehaviour
 
         foreach (GameObject unit in units)
         {
-            float distance = Vector3.Distance( transform.position, unit.transform.position );
-            if (distance < closestDistance)
+            if (unit.transform.parent.CompareTag( "Tile" ))
             {
-                closestDistance = distance;
-                _closestUnit = unit;
+                float distance = Vector3.Distance( transform.position, unit.transform.position );
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    _closestUnit = unit;
+                }
             }
         }
     }
