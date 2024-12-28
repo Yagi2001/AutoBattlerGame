@@ -52,6 +52,7 @@ public class UnitMovement : MonoBehaviour
             else
             {
                 _animator.SetBool( "isRunning", false );
+                RotateTowardsTarget();
                 _unitAttack.Attack( _closestUnit );
             }
         }

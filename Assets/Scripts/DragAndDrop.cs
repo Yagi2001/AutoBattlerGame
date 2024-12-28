@@ -8,9 +8,11 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 _originalPosition;
     [SerializeField]
     private LayerMask _tileLayer;
+    private Vector3 _initialLocalPosition;
 
     private void Start()
     {
+        _initialLocalPosition = transform.localPosition;
         _mainCamera = Camera.main;
     }
 
@@ -75,6 +77,7 @@ public class DragAndDrop : MonoBehaviour
                         tileTransform.position.z
                     );
                     transform.SetParent( tileTransform );
+                    transform.localPosition = _initialLocalPosition; //This might not be the best solution but currently Im using it solve the position problem
                     return true;
                 }
             }
