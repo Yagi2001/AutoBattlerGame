@@ -31,6 +31,11 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
+        if (StateManager.Instance.CurrentGameState != GameState.BattlePhase)
+        {
+            _animator.SetBool( "isRunning", false );
+            return;
+        }
         if (_closestUnit == null || _closestUnit.GetComponent<UnitHealth>().IsDead())
         {
             FindClosestUnit();
