@@ -27,6 +27,7 @@ public class UnitHealth : MonoBehaviour
 
     private void Die()
     {
-        gameObject.SetActive( false );
+        Destroy(gameObject);
+        StateManager.Instance.CheckForUnits();
     }
 }
